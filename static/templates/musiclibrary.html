@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<input type="text" id="searchInput" placeholder="Пошук за назвою">
+<button onclick="searchMusic()" id="searchButton">Знайти</button>
+
+
+{% if music %}
+<table>
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Виконавець</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody id="musicBody">
+        {% for item in music %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.artist }}</td>
+            <td>
+                <a href="{{ url_for('edit', music_id=item.id) }}">Редагувати</a>
+                <form action="{{ url_for('delete', music_id=item.id) }}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Ви дійсно хочете видалити цей трек?');">
+                        Видалити
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>Нічого не знайдено.</p>
+{% endif %}
+
+{% endblock %}

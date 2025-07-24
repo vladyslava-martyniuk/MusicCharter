@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Music charter
+      {% endblock %}</title>
+    <style>   
+  body{
+        background-color: black;
+      }
+  h1,h2, p, label{
+      color: white;
+  }
+  .header{
+ display: flex;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    margin-left: 500px;
+   gap: 50px;
+}
+li{
+    margin-right: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 50px;
+}
+
+thead tr {
+  background-color: purple;
+  color: white;
+  font-weight: 600;
+}
+
+thead th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9fafe;
+}
+
+tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+tbody td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+td:first-child {
+  font-weight: 700;
+  color: purple;
+}
+td:first-child {
+  font-weight: 700;
+  color: purple;
+}
+td:nth-child(2) {
+  font-style: italic;
+  color: purple;
+}
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+#searchInput {
+   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+#searchButton {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 58px;
+  right: 0;
+  
+}
+
+td:last-child {
+  white-space: nowrap;
+}
+
+#adminButton,td:last-child button,
+td:last-child a {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+td:last-child button {
+  background-color: #d9534f; 
+}
+
+td:last-child button:hover {
+  background-color: #c9302c;
+}
+
+td:last-child a,#adminButton {
+  background-color: purple; 
+}
+
+td:last-child a:hover {
+  background-color: #025aa5;
+}
+
+    </style>
+
+</head>
+<body>
+    {% include '_nav.html' %}
+    
+    {% block content %}{% endblock %}
+  <script src="../static/main.js"></script>
+</body>
+</html>

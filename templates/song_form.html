@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% if mode == 'add' %}Додати пісню{% else %}Редагувати пісню{% endif %}</h1>
+
+<form method="POST">
+  <label>Назва пісні:</label>
+  <input type="text" name="title" value="{{ song.title if song else '' }}" required><br><br>
+
+  <label>Виконавець:</label>
+  <select name="artist_id" required>
+    {% for artist in artists %}
+      <option value="{{ artist.id }}" {% if song and song.artist_id == artist.id %}selected{% endif %}>
+        {{ artist.name }}
+      </option>
+    {% endfor %}
+  </select><br><br>
+
+  {% if mode == 'add' %}
+    <button type="submit" id="adminButton">Додати</button>
+  {% elif mode == 'edit' %}
+    <button type="submit" id="adminButton">Оновити</button>
+  {% endif %}
+</form>
+{% endblock %}

@@ -2,12 +2,12 @@
 
 {% block content %}
 
+<h1>Бібліотека музики</h1>
 
 <input type="text" id="searchInput" placeholder="Пошук за назвою">
 <button onclick="searchMusic()" id="searchButton">Знайти</button>
 
-
-{% if music %}
+{% if songs %}
 <table>
     <thead>
         <tr>
@@ -17,13 +17,13 @@
         </tr>
     </thead>
     <tbody id="musicBody">
-        {% for item in music %}
+        {% for song in songs %}
         <tr>
-            <td>{{ item.title }}</td>
-            <td>{{ item.artist }}</td>
+            <td>{{ song.title }}</td>
+            <td>{{ song.artist.name }}</td>
             <td>
-                <a href="{{ url_for('edit', music_id=item.id) }}">Редагувати</a>
-                <form action="{{ url_for('delete', music_id=item.id) }}" method="post" style="display:inline;">
+                <a href="{{ url_for('edit_song', song_id=song.id) }}">Редагувати</a>
+                <form action="{{ url_for('delete_song', song_id=song.id) }}" method="post" style="display:inline;">
                     <button type="submit" onclick="return confirm('Ви дійсно хочете видалити цей трек?');">
                         Видалити
                     </button>

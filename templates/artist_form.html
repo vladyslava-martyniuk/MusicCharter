@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if mode == 'add' %}Додати виконавця{% elif mode == 'edit' %}Редагувати виконавця{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>
+  {% if mode == 'add' %}Додати виконавця{% elif mode == 'edit' %}Редагувати виконавця{% endif %}
+</h2>
+
+<form method="post">
+  <label>Ім'я виконавця:</label><br>
+  <input type="text" name="name" value="{{ artist.name if artist else '' }}" 
+         {% if mode == 'view' or mode == 'delete' %}readonly{% endif %}
+         required><br><br>
+
+  {% if mode == 'add' %}
+    <button type="submit" id="adminButton">Додати</button>
+  {% elif mode == 'edit' %}
+    <button type="submit" id="adminButton" >Оновити</button>
+  {% endif %}
+</form>
+{% endblock %}

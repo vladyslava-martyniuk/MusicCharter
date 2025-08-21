@@ -20,9 +20,9 @@ class Song(db.Model):
 
 # Ініціалізація БД
 
-with app.app_context():
-    db.create_all()
-    print("База даних та таблиці успішно створені ✅")
+#with app.app_context():
+   # db.create_all()
+   # print("База даних та таблиці успішно створені ✅")
 
 
 
